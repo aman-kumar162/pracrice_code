@@ -23,20 +23,24 @@ int minpath(vector<vector<int>> trial,int n){
 class tabulation{
  public:   
     int minpath(vector<vector<int>> trial ,int n){
-      vector<vector<int>>dp(n,vector<int>(n,0));
+      vector<int>dp(n,0);
+      vector<int> front;
       for(int i=0;i<n;i++){
-          dp[n-1][i]=trial[n-1][i];
+          dp[i]=trial[n-1][i];
 
       }
       for(int i=n-2;i>=0;i--){
         for(int j=i;j>=0;j--){
-            int down=trial[i][j]+dp[i+1][j];
-            int diag=trial[i][j]+dp[i+1][j+1];
-            dp[i][j]=min(down,diag);
+            int down=trial[i][j]+dp[i];
+            int diag=trial[i][j]+dp[i+1];
+            front[i]=min(down,diag);
 
         }
+           dp=front;
+           
       }
-        return dp[0][0];
+    
+        return dp[0];
     }
 };
 int main(){
