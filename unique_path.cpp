@@ -1,5 +1,4 @@
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 
 int path(int m,int n,vector<vector<int>>&dp){

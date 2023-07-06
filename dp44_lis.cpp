@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include<stdio.h>
+
 using namespace std;
 
 bool compare(string& s1, string& s2){
